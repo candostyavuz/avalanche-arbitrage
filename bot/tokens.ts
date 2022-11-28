@@ -8,7 +8,7 @@ import { ethers } from 'hardhat';
 import log from './log';
 
 export enum Network {
-  KCC = 'kcc',
+  AVALANCHE = 'avalanche',
 }
 
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
@@ -113,7 +113,7 @@ const avaxDexes: AmmFactories = {
 
 function getFactories(network: Network): AmmFactories {
   switch (network) {
-    case Network.KCC:
+    case Network.AVALANCHE:
       return avaxDexes;
     default:
       throw new Error(`Unsupported network:${network}`);
@@ -122,7 +122,7 @@ function getFactories(network: Network): AmmFactories {
 
 export function getTokens(network: Network): [Tokens, Tokens] {
   switch (network) {
-    case Network.KCC:
+    case Network.AVALANCHE:
       return [avalancheBaseTokens, avalancheQuoteTokens];
     default:
       throw new Error(`Unsupported network:${network}`);

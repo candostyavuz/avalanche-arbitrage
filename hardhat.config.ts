@@ -7,7 +7,7 @@ import deployer from './.secret';
 // const KCC_RPC = 'https://127.0.0.1:8545/';
 const avalancheMainnet = 'https://api.avax.network/ext/bc/C/rpc';
 const avalancheFuji = 'https://api.avax-test.network/ext/bc/C/rpc';
-const avalancheFork = 'https://avalanche-mainnet.infura.io/v3/a11908c0f4dc461381e780261e681154';
+// const avalancheFork = 'https://avalanche-mainnet.infura.io/v3/a11908c0f4dc461381e780261e681154';
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -21,10 +21,11 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {
-      loggingEnabled: true,
+      chainId: 43114,
+      gasPrice: 225000000000,
       forking: {
-        url: avalancheFork,
-        enabled: true,
+          url: "https://api.avax.network/ext/bc/C/rpc",
+          enabled: true,
       },
       accounts: {
         accountsBalance: '1000000000000000000000000', // 1 mil ether
